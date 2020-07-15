@@ -15,8 +15,8 @@ no public repository specified.
 usage: $( basename ${BASH_SOURCE[0]} ) \
 [-b <branch='$BRANCH_DEF'>] \
 [-n <name='$PUBREPNAME_DEF'>] \
-<path_to_repository>"
- e.g.: $( basename ${BASH_SOURCE[0]} ) https://github.com/scimerc/myrepo.git"
+<path_to_repository>
+ e.g.: $( basename ${BASH_SOURCE[0]} ) https://github.com/scimerc/myrepo.git
 EOF
   exit 0
 fi
