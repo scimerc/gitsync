@@ -9,6 +9,18 @@ declare BRANCH=$BRANCH_DEF
 declare -r PUBREPNAME_DEF='origin'
 declare PUBREPNAME=$PUBREPNAME_DEF
 
+if [ "$*" == "" ] ; then
+  cat << EOF
+no public repository specified.
+usage: $( basename ${BASH_SOURCE[0]} ) \
+[-b <branch='$BRANCH_DEF'>] \
+[-n <name='$PUBREPNAME_DEF'>] \
+<path_to_repository>"
+ e.g.: $( basename ${BASH_SOURCE[0]} ) https://github.com/scimerc/myrepo.git"
+EOF
+  exit 0
+fi
+
 while getopts "b:n:" opt; do
 case "${opt}" in
   n)
@@ -22,18 +34,6 @@ case "${opt}" in
 esac
 done
 shift $((OPTIND-1))
-
-if [ "$1" == "" ] ; then
-  cat << EOF
-no public repository specified.
-usage: $( basename ${BASH_SOURCE[0]} ) \\
-[-b <branch='$BRANCH_DEF'>] \\
-[-n <name='$PUBREPNAME_DEF'>] \\
-<path_to_repository>"
- e.g.: $( basename ${BASH_SOURCE[0]} ) https://github.com/scimerc/myrepo.git"
-EOF
-  exit 0
-fi
 
 PUBREP="$1"
 PRJDIR="$( cd $( dirname $( readlink -e "${BASH_SOURCE[0]}" ) )/../ ; pwd )"
