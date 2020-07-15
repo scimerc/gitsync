@@ -36,7 +36,7 @@ done
 shift $((OPTIND-1))
 
 PUBREP="$1"
-PRJDIR="$( cd $( dirname $( readlink -e "${BASH_SOURCE[0]}" ) )/../ ; pwd )"
+PRJDIR="$( cd $( dirname $( readlink -e "${BASH_SOURCE[0]}" ) ) ; pwd )"
 
 cd ${PRJDIR}
 
