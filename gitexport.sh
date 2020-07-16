@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# exports a repository to a gzip-compressed tarball
+# exports repositories to gzip-compressed tarballs
 
 # exit on error
 set -ETeuo pipefail
